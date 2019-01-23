@@ -11,7 +11,7 @@ public class OprNaPliku {
 
     public int[] sprawdzListeLiczb() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("podaj 6 liczb z zakresu 1 - 49");
+        wyswieltKomunikat("podaj 6 liczb z zakresu 1 - 49");
         int[] tablcaLiczb = new int[6];
         for (int i = 0; i < tablcaLiczb.length; i++) {
             tablcaLiczb[i] = sprawdzLiczbe(br);
@@ -36,9 +36,9 @@ public class OprNaPliku {
                     poprawnie = true;
                 }
             } catch (NumberFormatException nfe) {
-                System.err.println("niewałaściwa liczba");
+                wyswieltBlad("niewałaściwa liczba");
             } catch (InivalidNumber in) {
-                System.err.println("liczba poza zakresem");
+                wyswieltBlad("liczba poza zakresem");
             }
         } while (!poprawnie);
         return j;
@@ -52,5 +52,18 @@ public class OprNaPliku {
         }
         Arrays.sort(numbers);
         return numbers;
+    }
+
+    public String wyswietlDate(String str){
+        return str.substring(str.indexOf(" ")+1, str.lastIndexOf(" ")+1);
+
+    }
+
+    public void wyswieltBlad(String str){
+        System.err.println(str);
+    }
+
+    public void wyswieltKomunikat(String str){
+        System.out.println(str);
     }
 }

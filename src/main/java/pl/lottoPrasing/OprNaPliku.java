@@ -1,16 +1,19 @@
 package pl.lottoPrasing;
 
+import javafx.beans.property.IntegerProperty;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class OprNaPliku {
 
-    public int[] sprawdzListeLiczb(){
+    public int[] sprawdzListeLiczb() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("podaj 6 liczb z zakresu 1 - 49");
-        int [] tablcaLiczb = new int[6];
-        for (int i = 0; i<tablcaLiczb.length; i++){
+        int[] tablcaLiczb = new int[6];
+        for (int i = 0; i < tablcaLiczb.length; i++) {
             tablcaLiczb[i] = sprawdzLiczbe(br);
 
         }
@@ -41,4 +44,13 @@ public class OprNaPliku {
         return j;
     }
 
+    public int[] zmianaStringNaInt(String str) {
+        String[] tab = str.substring(str.lastIndexOf(" ") + 1).split(",");
+        int[] numbers = new int[6];
+        for (int i = 0; i < tab.length; i++) {
+            numbers[i] = Integer.parseInt(tab[i]);
+        }
+        Arrays.sort(numbers);
+        return numbers;
+    }
 }

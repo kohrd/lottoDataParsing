@@ -9,6 +9,21 @@ import java.util.Arrays;
 
 public class OprNaPliku {
 
+    public void wyszukajLiczby(BufferedReader bf) throws IOException {
+        String str;
+        int [] tabl = sprawdzListeLiczb();
+        while((str = bf.readLine()) != null){
+            int[] numbers = zmianaStringNaInt(str);
+            Arrays.sort(tabl);
+            boolean rowne = Arrays.equals(tabl, numbers);
+            if (rowne){
+                wyswieltKomunikat("znaleziono Data osowania: " + wyswietlDate(str));
+            }
+
+
+        }
+    }
+
     public int[] sprawdzListeLiczb() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         wyswieltKomunikat("podaj 6 liczb z zakresu 1 - 49");

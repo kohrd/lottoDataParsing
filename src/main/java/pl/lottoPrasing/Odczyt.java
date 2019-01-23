@@ -23,7 +23,8 @@ public class Odczyt {
 
         System.out.println("Koniec");
 
-
+    OprNaPliku oprNaPliku = new OprNaPliku();
+    oprNaPliku.wyszukajLiczby(in);
         in.close();
 
 
